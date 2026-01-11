@@ -1,0 +1,13 @@
+#!/bin/bash
+echo $(pwd)
+docker run \
+-it \
+--rm \
+--name=tfwebview \
+-v "$(pwd)":/webview \
+-v /media/internal/record/tfspikingnn:/record \
+-p 0.0.0.0:4173:4173 \
+-p 0.0.0.0:5173:5173 \
+-p 0.0.0.0:8080:8080 \
+busybox:uclibc \
+/bin/sh

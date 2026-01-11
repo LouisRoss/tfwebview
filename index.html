@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>My first three.js app</title>
+    <style>
+      body { margin: 0; }
+    </style>
+    <link rel="stylesheet" href="webview.css">
+    <link rel="stylesheet" href="css/cube.css">
+  </head>
+  <body>
+    <div id="info">Description</div>
+    <canvas id="c"></canvas>
+     <script type="module" src="main.js"></script>
+     
+    <script>
+      const socket = new WebSocket('ws://192.168.1.142:5173/ws');
+
+      socket.addEventListener('error', (event) => {
+          console.error('WebSocket error: ', event);
+      });
+
+      socket.addEventListener('open', (event) => {
+          console.log('Connected to server');
+          socket.send('Hello Server!');
+      });
+
+      socket.addEventListener('message', (event) => {
+          console.log('Message from server: ', event.data);
+      });
+
+      socket.addEventListener('close', (event) => {
+          console.log('Connection closed');
+      });
+    </script>
+    
+  </body>
+</html>
