@@ -4,7 +4,7 @@ import {Neuron} from './neuron.js';
 import {ConnectionTest} from './tests/connectionTest.js';
 
 //import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/controls/OrbitControls.js';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls';
 
 class Brain {
   constructor() {

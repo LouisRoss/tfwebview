@@ -3,6 +3,18 @@ const fs = require('fs');
 const path = require('path');
 const WebSocket = require('ws');
 
+http.createServer((req, res) => {
+    const filePath = path.join(__dirname, req.url);
+    const extname = path.extname(filePath);
+
+    // Manual mapping
+    if (extname === '.js' || extname === '.mjs') {
+        res.writeHead(200, { 'Content-Type': 'text/javascript' });
+        fs.createReadStream(filePath).pipe(res);
+    }
+}).listen(3000);
+
+
 const PORT = process.env.PORT || 5173;
 
 // Basic MIME types mapping
@@ -27,6 +39,7 @@ const server = http.createServer((req, res) => {
   if (requestedPath === '/') requestedPath = '/index.html';
   const safePath = path.normalize(requestedPath).replace(/^\.+/, '');
   const filePath = path.join(PUBLIC_DIR, safePath);
+  console.log(`Browser requested file ${filePath}`)
 
   fs.stat(filePath, (err, stats) => {
     if (err || !stats.isFile()) {
@@ -37,6 +50,7 @@ const server = http.createServer((req, res) => {
 
     const ext = path.extname(filePath).toLowerCase();
     const contentType = MIME_TYPES[ext] || 'application/javascript';
+    console.log(`Using content type ${contentType}`)
     fs.readFile(filePath, (err, data) => {
       if (err) {
         res.writeHead(500, { 'Content-Type': 'text/plain' });
