@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as THREE from './node_modules/three/src/Three.js';
 
 function cube() {
     const canvas = document.querySelector('#c');

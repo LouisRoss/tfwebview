@@ -15,7 +15,8 @@
      <script type="module" src="main.js"></script>
      
     <script>
-      const socket = new WebSocket('ws://localhost:5200/ws');
+      console.log('Connecting to WebSocket server...');
+      const socket = new WebSocket('ws://localhost:5173/ws');
 
       socket.addEventListener('error', (event) => {
           console.error('WebSocket error: ', event);

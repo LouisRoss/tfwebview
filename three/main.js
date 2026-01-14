@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as THREE from './node_modules/three/src/Three.js';
 
 //import { cube } from './cube.js';
 //import { primitives } from './primitives.js';

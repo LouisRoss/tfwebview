@@ -64,6 +64,7 @@ const server = http.createServer((req, res) => {
 });
 
 // Attach WebSocket server to the same HTTP server on the '/ws' path
+console.log('Starting WebSocket server on /ws');
 const wss = new WebSocket.Server({ server, path: '/ws' });
 
 wss.on('connection', (ws, req) => {

@@ -1,10 +1,10 @@
-import * as THREE from 'three';
+import * as THREE from './node_modules/three/src/Three.js';
 import {InputManager} from './src/inputManager.js';
 import {Neuron} from './neuron.js';
 import {ConnectionTest} from './tests/connectionTest.js';
 
-//import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/controls/OrbitControls.js';
-import { OrbitControls } from 'three/addons/controls/OrbitControls';
+import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/controls/OrbitControls.js';
+//import { OrbitControls } from 'three/addons/controls/OrbitControls';
 
 class Brain {
   constructor() {
